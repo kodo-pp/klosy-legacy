@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <kernel/memory.h>
-// https://pastebin.com/zmZjDvuu
 static const int DEFAULT_FILE_SIZE = 16;
 static int frw_err = 0;
 
@@ -27,11 +26,10 @@ file make_file(string_t name)
 	f->data = allocate(DEFAULT_FILE_SIZE);
 	if (f->data == null)
 	{
-		deallocate(f, sizeof(struct _file));//но здесь обращаемся не как file здесь нет звёздочки, то есть это не укахатель. Нам нужно узнать размер самой структуры, а не указателя на неё
-		// sizeof - размер какой-то переменной или какого-та типа данныз. Например: sizeof(int) == 4;      short a[10]; sizeof(a) == 20 эта функция из стандартной библиотеки? Нет, она встроенная в компилятор так стоп на всех компиляторах она есть? Должна быть на всех. Это часть стандарта языка. Ясно.
+		deallocate(f, sizeof(struct _file));
 		return null;
 	}
-	return f; // Я пошёл пить чай, буду, когда вернусь. ок.
+	return f;
 }
 
 int resize_file(file f, size_t new_size)
@@ -40,8 +38,7 @@ int resize_file(file f, size_t new_size)
 		return 0;
 	if (new_size < f->size)
 	{
-		deallocate(f->data + new_size, f->size - new_size);//что значит->     f - это указатель на структуру _file.  f->size   - то же самое, что и   (*f).size
-								//																			struct str s1; struct str *s2 = &s1;       s1.value   ==    s2->value
+		deallocate(f->data + new_size, f->size - new_size);
 		f->size = new_size;
 	}
 	else if (new_size > f->size)
@@ -58,11 +55,11 @@ int resize_file(file f, size_t new_size)
 	return 1;
 }
 
-int rename_file(file f, string_t new_name) // файл  новое имя файла то есть мы в функцию указатель на файл помещаем Да, указатель на struct _file, то есть file
+int rename_file(file f, string_t new_name)
 {
-	if (f == null)//зачем? Если сюда передадут нулевой указатель, то ОС не упадёт
+	if (f == null)
 		return 0;
-	int64_t nh = hash(new_name); // Здесь мы считаем хэш нового имени и кладём его туда
+	int64_t nh = hash(new_name);
 	f->name_hash = nh;
 	return 1; 
 }
@@ -103,7 +100,7 @@ int fread(file f, size_t sz, void *_buf)
 	return 1;
 }
 
-int fwrite_8(file f, int8_t data) // Всё понятно? Если бы... Что например непонятно?
+int fwrite_8(file f, int8_t data)
 {
 	if (f == null)
 		return 0;
@@ -113,4 +110,4 @@ int fwrite_8(file f, int8_t data) // Всё понятно? Если бы... Ч�
 	p[f->position++] = data;
 	return 1;
 }
-int fwrite(file, size_t, void *); // Ты здесь? ................*/
+int fwrite(file, size_t, void *);*/
