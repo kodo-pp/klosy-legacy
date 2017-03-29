@@ -57,6 +57,7 @@ stdmath/stdmath.o \
 stdmath/tf.o \
 stdmath/sin.o \
 hash/hash.o \
+file/file.o \
 
 
 HOSTEDOBJS=\

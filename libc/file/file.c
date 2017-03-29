@@ -1,9 +1,10 @@
-/*#include <file.h>
+#include <file.h>
+#include <time.h>
 #include <hash.h>
 #include <string.h>
 #include <stdlib.h>
 #include <kernel/memory.h>
-static const int DEFAULT_FILE_SIZE = 16;
+static const size_t DEFAULT_FILE_SIZE = 16;
 static int frw_err = 0;
 
 int get_frw_err()
@@ -15,15 +16,24 @@ void reset_frw_err()
 	frw_err = 0;
 }
 
+static inline int try_resize(file f)
+{
+	if (f == null)
+		return 0;
+	else
+		return resize_file(f, (f->size > 0) ? 2*f->size : DEFAULT_FILE_SIZE);
+}
+
 file make_file(string_t name)
 {
 	file f = allocate(sizeof(struct _file));
 	if (f == null)
 		return null;
-	int64_t h = hash(name);
+	uint64_t h = hash(name);
 	f->name_hash = h;
 	f->size = DEFAULT_FILE_SIZE;
 	f->data = allocate(DEFAULT_FILE_SIZE);
+	f->pos = 0;
 	if (f->data == null)
 	{
 		deallocate(f, sizeof(struct _file));
@@ -71,7 +81,7 @@ int8_t fread_8(file f)
 		frw_err = 1;
 		return 0;
 	}
-	else if (f->position >= f->size)
+	else if (f->pos >= f->size)
 	{
 		frw_err = 2;
 		return 0;
@@ -79,7 +89,7 @@ int8_t fread_8(file f)
 	else
 	{
 		int8_t *ptr = (int8_t *)(f->data);
-		int8_t ret = ptr[f->position++];
+		int8_t ret = ptr[f->pos++];
 		return ret;
 	}
 }
@@ -102,12 +112,52 @@ int fread(file f, size_t sz, void *_buf)
 
 int fwrite_8(file f, int8_t data)
 {
+//	printf("\nfw8 %d: ", (int)data);
+//	sleep(1000);
 	if (f == null)
 		return 0;
-	if (f->position >= f->size)
-		return 0;
+//	printf("f!=0, ");
+//	sleep(1000);
+	if (f->pos >= f->size)
+	{
+//		printf("pos>=size|%d/%d, ", (int)f->pos, (int)f->size);
+//		sleep(1000);
+		if (!try_resize(f))
+			return 0;
+//		printf("resized");
+//		sleep(1000);
+	}
 	int8_t *p = (int8_t *)(f->data);
-	p[f->position++] = data;
+//	printf("p ready");
+//	sleep(1000);
+	p[f->pos++] = data;
+//	printf("written, pos=%d\n", (int)f->pos);
+//	sleep(1000);
 	return 1;
 }
-int fwrite(file, size_t, void *);*/
+
+int fwrite(file f, size_t sz, void *_buf)
+{
+//	sleep(1000);
+//	printf("Writing... ");
+	if (f == null || _buf == null)
+	{
+		return 0;
+	}
+//	sleep(1000);
+	int8_t *buf = (int8_t *)_buf;
+//	printf("buf ready, ");
+//	sleep(1000);
+	for (size_t i = 0; i < sz; ++i)
+	{
+//		printf("fwr %d ", (int)buf[i]);
+//		sleep(1000);
+		if (!fwrite_8(f, buf[i]))
+			return 0;
+//		printf("ok, ");
+//		sleep(1000);
+	}
+//	printf("ok\n");
+	return 1;
+}
+

@@ -11,7 +11,7 @@ struct _file // Структура, отражающая файл
 	void *data; // Указатель на данные в файле
 	size_t size; // Размер файла
 	size_t pos; // Позиция "курсора" при чтении/записи
-}
+};
 
 typedef struct _file* file;
 
