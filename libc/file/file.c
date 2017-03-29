@@ -40,8 +40,6 @@ file make_file(string_t name)
 		deallocate(f, sizeof(struct _file));
 		return null;
 	}
-//	printf("make file: name=[%s],size=%d,pos=%d;\n", name, (int)f->size, (int)f->pos);
-//	sleep(1000);
 	return f;
 }
 
@@ -119,35 +117,21 @@ int fwrite_8(file f, int8_t data)
 //	sleep(1000);
 	if (f == null)
 		return 0;
-//	printf("f!=0, ");
-//	sleep(1000);
 	if (f->pos >= f->size)
 	{
-//		printf("pos>=size|%d/%d, ", (int)f->pos, (int)f->size);
-//		sleep(1000);
 		if (!try_resize(f))
 			return 0;
-//		printf("resized");
-//		sleep(1000);
 	}
 	int8_t *p = (int8_t *)(f->data);
-//	printf("p ready");
-//	sleep(1000);
 	p[f->pos++] = data;
-//	printf("written '%c', to=0x%x, pos=%d, at=0x%x\n", (char)data, (int)f, (int)f->pos, (int)(p+f->pos-1));
-//	sleep(1000);
 	return 1;
 }
-
 int fwrite(file f, size_t sz, void *_buf)
 {
-//	sleep(1000);
-//	printf("Writing... ");
 	if (f == null || _buf == null)
 	{
 		return 0;
 	}
-//	sleep(1000);
 	int8_t *buf = (int8_t *)_buf;
 //	printf("buf ready, ");
 //	sleep(1000);

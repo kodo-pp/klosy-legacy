@@ -9,4 +9,3 @@ void kassert(bool val)
 		kerr("kassertion failed");
 	}
 }
-
