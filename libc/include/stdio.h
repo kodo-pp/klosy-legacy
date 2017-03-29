@@ -11,7 +11,6 @@ extern "C"
 #endif
 
 int printf(const char* __restrict, ...);
-//bool print(const char*, size_t);
 int putchar(int);
 int puts(const char*);
 int getchar(void);

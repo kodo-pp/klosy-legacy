@@ -5,8 +5,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-//bool make_tty(int, size_t, size_t, size_t, size_t);
-//void use_tty(int);
 void terminal_clear();
 void terminal_setcolor(uint8_t);
 void terminal_initialize(void);

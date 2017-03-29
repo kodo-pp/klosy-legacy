@@ -48,7 +48,7 @@ void kernel_early()
 	return;
 }
 
-void kernel_main(void)//сложноватенько половина printf'ов - тупо для красоты)
+void kernel_main(void)
 {	
 	kernel_early();
 	
@@ -57,7 +57,7 @@ void kernel_main(void)//сложноватенько половина printf'о�
 	printf("%c%c%c%c%c%c%c\n", schar(SCR|SCU|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCU|SCDV|SCDH));
 	printf("%oAlmost a good one!%o\n\n", cl(white, black), cl(lightGrey, black));
 	
-	startInit(); // основа - вот
+	startInit();
 	
 	// after init exits
 	printf("%oShutting down...%o\n", cl(red, black), cl(lightGrey, black));
