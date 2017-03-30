@@ -9,3 +9,6 @@ done
 rm -rf sysroot
 rm -rf isodir
 rm -rf klosy.iso
+
+touch 'kostyl~'
+rm -r `find . | egrep '\~$'`
