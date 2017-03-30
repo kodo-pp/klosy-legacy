@@ -1,0 +1,25 @@
+#include <file.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdstructs/list.h>
+#include <initramfs.h>
+
+static file curr_file = null;
+static list fls = null;
+
+list get_fls()
+{
+	return fls;
+}
+
+static void f_add(string_t s)
+{
+	fwrite(curr_file, strlen(s), s);
+	fwrite(curr_file, 1, 10);
+}
+
+void init_ramfs()
+{
+
+list fls = make_list(null);
+
