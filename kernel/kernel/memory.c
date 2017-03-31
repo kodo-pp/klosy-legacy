@@ -2,10 +2,10 @@
 #include <stdint.h>
 #include <time.h>
 
-int8_t *reserved_begin = (int8_t *)0x100000;
+int8_t *reserved_begin = (int8_t *)0x200000;
 size_t reserved_size = 0x4000000; // 64 MiB
-int8_t *allocbuf_begin = (int8_t *)0x4100000;
-size_t allocbuf_size = 0x100000;
+int8_t *allocbuf_begin = (int8_t *)0x4200000;
+size_t allocbuf_size = 0x4000000;
 
 static size_t getOffset(int8_t *ptr)
 {
