@@ -104,7 +104,7 @@ size_t list_len(list ls)
 		return 0;
 	
 	list tls = ls;
-	size_t sz = 1;
+	size_t sz = 0;
 	while (tls)
 	{
 		tls = tls->next;
