@@ -2,6 +2,7 @@
 #include <time.h>
 #include <hash.h>
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <kernel/memory.h>
 static const size_t DEFAULT_FILE_SIZE = 16;
@@ -39,6 +40,8 @@ file make_file(string_t name)
 		deallocate(f, sizeof(struct _file));
 		return null;
 	}
+//	printf("make file: name=[%s],size=%d,pos=%d;\n", name, (int)f->size, (int)f->pos);
+//	sleep(1000);
 	return f;
 }
 
@@ -131,7 +134,7 @@ int fwrite_8(file f, int8_t data)
 //	printf("p ready");
 //	sleep(1000);
 	p[f->pos++] = data;
-//	printf("written, pos=%d\n", (int)f->pos);
+//	printf("written '%c', to=0x%x, pos=%d, at=0x%x\n", (char)data, (int)f, (int)f->pos, (int)(p+f->pos-1));
 //	sleep(1000);
 	return 1;
 }
