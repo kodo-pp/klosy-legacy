@@ -1,2 +1,5 @@
-fls = list_prevmost(fls);
+curr_file->pos = 0;
+fls = list_prevmost(fls)->next;
+list_pop(fls->prev);
+
 }
