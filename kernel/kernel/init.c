@@ -10,28 +10,24 @@
 #include <stdmath.h>
 #include <hash.h>
 #include <file.h>
+#include <irfs.h>
 
 void startInit()
 {
-//	printf("make file\n");
-//	sleep(1000);
-//	printf("make file\n");
-	file f = make_file("File 1");
-	if (!f)
-		panic("no f");
-	string_t s = "Hello world!", s1 = allocate(64);
-	if (!s1)
-		panic("zzzaaa");
-	memset(s1, 0, 64);
-//	printf("write file\n");
-//	sleep(1000);
-//	printf("write file\n");
-	fwrite(f, strlen(s)*sizeof(char), s);
-	f->pos = 0;
-//	printf("read file\n");
-//	sleep(1000);
-//	printf("read file\n");
-	fread(f, strlen(s)*sizeof(char), s1);
-	printf("%d, %s.\n", (int)strlen(s1), s1);
-	panic("azaza");
+	init_ramfs();
+	list ls = get_fls();
+	printf("%d\n", (int)list_abs_len(ls));
+	string_t s = allocate(4);
+	if (!s)
+		panic("no s");
+	for (int i = 0; i < (int)list_abs_len(ls); ++i)
+	{
+		s = "null";
+		if (list_abs_at(ls, i)->elem)
+		{
+			((file)(list_abs_at(ls,i)->elem))->pos = 0;
+			printf("fread: %d\n", fread((file)(list_abs_at(ls,i)->elem), 4, s));
+		}
+		printf("at(%d) = <<%s>>\n", i, s);
+	}
 }
