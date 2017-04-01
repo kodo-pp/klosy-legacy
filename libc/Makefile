@@ -58,7 +58,6 @@ stdmath/tf.o \
 stdmath/sin.o \
 hash/hash.o \
 file/file.o \
-initramfs/irfs.o \
 
 
 HOSTEDOBJS=\
