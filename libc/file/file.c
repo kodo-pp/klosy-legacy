@@ -40,6 +40,8 @@ file make_file(string_t name)
 		deallocate(f, sizeof(struct _file));
 		return null;
 	}
+//	printf("make file: name=[%s],size=%d,pos=%d;\n", name, (int)f->size, (int)f->pos);
+//	sleep(1000);
 	return f;
 }
 
