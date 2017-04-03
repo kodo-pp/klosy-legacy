@@ -45,13 +45,11 @@ uint64_t hash(string_t str)
 			for (size_t i = len; i < MIN_STR_LEN; ++i)
 			{
 				newstr[i] = (char)((char)((1ll*i*(i+1)*(i*i-1)*(len+1)*1234567) >> 8) ^ (i > 0 ? newstr[i-1] : 0)); // Просто любая жуткая формула для генерации псевдослучайного числа на основе предыдущих символов.
-//				printf("qqqq:%d\n");
 			}
 			return xhash(newstr, MIN_STR_LEN);
 		}
 		else
 		{
-//			printf("azaza\n");
 			return 0;
 		}
 	}

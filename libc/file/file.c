@@ -40,8 +40,6 @@ file make_file(string_t name)
 		deallocate(f, sizeof(struct _file));
 		return null;
 	}
-//	printf("make file: name=[%s],size=%d,pos=%d;\n", name, (int)f->size, (int)f->pos);
-//	sleep(1000);
 	return f;
 }
 
@@ -147,7 +145,6 @@ int fwrite(file f, size_t sz, void *_buf)
 	{
 		return 0;
 	}
-//	sleep(1000);
 	int8_t *buf = (int8_t *)_buf;
 //	printf("buf ready, ");
 //	sleep(1000);

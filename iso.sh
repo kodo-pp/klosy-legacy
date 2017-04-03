@@ -13,4 +13,3 @@ cat grubcfg.txt > isodir/boot/grub/grub.cfg # `cat ./grubcfg.txt`<< EOF
 #}
 #EOF
 grub-mkrescue -o klosy.iso isodir
-# А вот и наш комментарий

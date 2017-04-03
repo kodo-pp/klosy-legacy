@@ -12,6 +12,7 @@
 #include <file.h>
 #include <irfs.h>
 
+
 void startInit()
 {
 	init_ramfs();
