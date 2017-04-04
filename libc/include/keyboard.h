@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef KBD_H
 #define KBD_H
 
@@ -27,4 +31,8 @@ int schar(int);
 #define SCDV (1<<4)
 #define SCDH (1<<5)
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif

@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef LIST_H
 #define LIST_H
 
@@ -32,3 +36,7 @@ list list_nextmost(list);
 
 #endif // LIST_H
 
+
+#ifdef __cplusplus
+}
+#endif

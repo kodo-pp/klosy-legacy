@@ -12,8 +12,12 @@
 #include <file.h>
 #include <irfs.h>
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
-void startInit()
+void startInit(void)
 {
 	init_ramfs();
 	list ls = get_fls();
@@ -32,3 +36,7 @@ void startInit()
 		printf("at(%d) = <<%s>>\n", i, s);
 	}
 }
+
+#ifdef __cplusplus
+}
+#endif

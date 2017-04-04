@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef _STDLIB_H
 #define _STDLIB_H 1
 
@@ -31,4 +35,8 @@ void halt(void);
 }
 #endif
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif

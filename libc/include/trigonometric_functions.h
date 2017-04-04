@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef TRIGON_FS
 #define TRIGONS_FS
 
@@ -13,4 +17,8 @@ double cos(double);
 double tan(double);
 double cotan(double);
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif

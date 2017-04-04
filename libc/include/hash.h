@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef HASH_H
 #define HASH_H
 
@@ -7,4 +11,8 @@
 
 uint64_t hash(string_t);
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif

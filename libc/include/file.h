@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef FILE_H
 #define FILE_H
 
@@ -26,4 +30,8 @@ int fread(file, size_t, void *); // Прочитать n байт из файл�
 int fwrite_8(file, int8_t); // Записать байт в файл
 int fwrite(file, size_t, void *); // Записать n байт в файл
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif

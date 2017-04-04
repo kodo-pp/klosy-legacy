@@ -1,3 +1,8 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <kernel/memory.h>
 #include <stdint.h>
 #include <time.h>
@@ -61,3 +66,7 @@ void deallocate(void *begin, size_t size)
 {
 	setAllocated(getOffset((int8_t *)begin), size, 0);
 }
+
+#ifdef __cplusplus
+}
+#endif

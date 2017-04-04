@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef _STDIO_H
 #define _STDIO_H 1
 
@@ -22,4 +26,8 @@ int scan_intl(void);
 }
 #endif
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif
