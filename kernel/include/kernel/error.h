@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef ERROR_H
 #define ERROR_H
 
@@ -9,3 +13,7 @@ void kerr_init(int);
 void kerr_reset();
 
 #endif // ERROR_H
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #include <stdlib.h>
 #include <keyboard.h>
 
@@ -6,3 +10,7 @@ uint64_t calibrate_time();
 void set_timecal(uint64_t);
 bool sleep(uint32_t);
 
+
+#ifdef __cplusplus
+}
+#endif

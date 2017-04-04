@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 static int err_count;
 static int max_errors;
 
@@ -26,3 +31,7 @@ void kerr(string_t estr)
 		panic("too many kernel errors");
 	}
 }
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef MATH_H
 #define MATH_H
 
@@ -10,4 +14,8 @@ void draw_point(int, int);
 void draw_line(int, int, int, int);
 int round(double);
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif

@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef LIST_H
 #define LIST_H
 
@@ -17,4 +21,8 @@ void *listNext(void *, size_t);
 void *listAbsoluteIndex(void *, size_t, int);
 void *listRelativeIndex(void *, size_t, int);
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif

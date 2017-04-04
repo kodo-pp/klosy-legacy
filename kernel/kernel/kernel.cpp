@@ -9,6 +9,11 @@
 #include <time.h>
 #include "../arch/i386/vga.h"
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 uint64_t ticks;
 
 void startInit();
@@ -63,3 +68,7 @@ void kernel_main(void)
 	printf("%oShutting down...%o\n", cl(red, black), cl(lightGrey, black));
 	panic("shutdown"); // shutdown function is not implemented yet
 }
+
+#ifdef __cplusplus
+}
+#endif

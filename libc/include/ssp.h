@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #include <stdint.h>
 #include <stdlib.h>
  
@@ -11,3 +15,7 @@ uintptr_t __stack_chk_guard = STACK_CHK_GUARD;
  
 __attribute__((noreturn))
 void __stack_chk_fail(void);
+
+#ifdef __cplusplus
+}
+#endif
