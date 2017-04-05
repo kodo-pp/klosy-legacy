@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #include <stdio.h>
 #include <kernel/tty.h>
 #include <kernel/init.h>
@@ -9,10 +13,6 @@
 #include <time.h>
 #include "../arch/i386/vga.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 uint64_t ticks;
 

@@ -15,7 +15,7 @@ BOOTDIR?=$(EXEC_PREFIX)/boot
 INCLUDEDIR?=$(PREFIX)/include
 
 CFLAGS:=$(CFLAGS) -ffreestanding -Wall -Wextra -fstack-protector-all
-CPPFLAGS:=$(CPPFLAGS) -D__is_kernel -Iinclude -I../libc/include -Wno-write-strings
+CPPFLAGS:=$(CPPFLAGS) -D__is_kernel -Iinclude -I../libc/include -I../libcpp/include -Wno-write-strings
 # TODO rewrite code in order to get rid of -Wno-write-strings
 LDFLAGS:=$(LDFLAGS)
 LIBS:=$(LIBS) -nostdlib -lk -lgcc
