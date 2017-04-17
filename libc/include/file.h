@@ -17,6 +17,7 @@ typedef struct _file* file;
 
 //Дальше пошли функции    
 int get_frw_err();
+void freset(file f);
 void reset_frw_err();
 file make_file(string_t); // Создать файл с заданным именем
 int resize_file(file, size_t); // Изменить размер файла

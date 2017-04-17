@@ -25,6 +25,11 @@ static inline int try_resize(file f)
 		return resize_file(f, (f->size > 0) ? 2*f->size : DEFAULT_FILE_SIZE);
 }
 
+void freset(file f)
+{
+	f->pos = 0;
+}
+
 file make_file(string_t name)
 {
 	file f = allocate(sizeof(struct _file));

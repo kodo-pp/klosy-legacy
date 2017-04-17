@@ -29,20 +29,24 @@ void scan_strl(string_t dest)
 	while (1)
 	{
 		int t = getchar();
-		if (t != 0xFFFF && i < 255)
-		{
-			printf("%c", t);
-			temp[i] = t;
-			++i;
-		}
 		if (t == '\n')
 		{
 			printf("\n");
 			break;
 		}
-		if (t == '\b')
+		else if (t == '\b')
 		{
-			i-=2;
+			if (i > 0)
+			{
+				printf("\b");
+				i--;
+			}
+		}
+		else if (t != 0xFFFF && i < 255)
+		{
+			printf("%c", t);
+			temp[i] = t;
+			++i;
 		}
 	}
 	

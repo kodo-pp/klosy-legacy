@@ -53,9 +53,9 @@ void kernel_main(void)
 	kernel_early();
 	
 	printf("%c%c%c%c%c%c%c\n", schar(SCR|SCD), schar(SCL|SCR), schar(SCL|SCR), schar(SCL|SCR), schar(SCL|SCR), schar(SCL|SCR), schar(SCL|SCD|SCDV));
-	printf("%c%oKLOSY%o%c%ov beta 1.3%o\n", schar(SCD|SCU), cl(blue, red), cl(lightGrey, black), schar(SCD|SCU|SCDV), cl(red, blue), cl(lightGrey, black));
+	printf("%c%oKLOSY%o%c%ov beta 1.4%o\n", schar(SCD|SCU), cl(blue, red), cl(lightGrey, black), schar(SCD|SCU|SCDV), cl(red, blue), cl(lightGrey, black));
 	printf("%c%c%c%c%c%c%c\n", schar(SCR|SCU|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCR|SCDH), schar(SCL|SCU|SCDV|SCDH));
-	printf("%oAlmost a good one!%o\n\n", cl(white, black), cl(lightGrey, black));
+	printf("%oThe release is near!%o\n\n", cl(white, black), cl(lightGrey, black));
 	
 	startInit();
 	

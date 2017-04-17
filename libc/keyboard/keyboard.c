@@ -48,7 +48,7 @@ char getScanCode()
 
 void kbd_sleep()
 {
-	sleep(250);
+	sleep(350);
 }
 
 int fromScanCode(int scancode)
