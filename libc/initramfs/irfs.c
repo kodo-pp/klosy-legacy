@@ -34,6 +34,7 @@ list_insert_next(fls, curr_file);
 f_add("qeioqe");
 f_add("uadg pY EF\"w IFOw");
 f_add("owf[u wf;;w f?WF Uiwy fo");
+f_add("Denis lox");
 
 if (curr_file)
     curr_file->pos = 0;
@@ -48,9 +49,18 @@ f_add("FW(&TW&Ft wloywf7 l WFLO Wfl97 t");
 if (curr_file)
     curr_file->pos = 0;
 fls = list_nextmost(fls);
-curr_file = make_file("cafwehgrhr");
+curr_file = make_file("ccc");
 list_insert_next(fls, curr_file);
 f_add("r208762r98yfohhcitf");
+
+if (curr_file)
+    curr_file->pos = 0;
+fls = list_nextmost(fls);
+curr_file = make_file("readme");
+list_insert_next(fls, curr_file);
+f_add("# klosy");
+f_add("Klosy is a lightweight operating system. I created this repo only because it's safe to store the source code on GitHub, not on my computer.");
+f_add("**Warning:** Klosy is in developement and it isn't ready for downloading.");
 
 curr_file->pos = 0;
 fls = list_prevmost(fls)->next;

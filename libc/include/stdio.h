@@ -17,6 +17,8 @@ int getchar(void);
 int getchar_nofilter(void);
 void scan_strl(string_t);
 int scan_intl(void);
+void draw_point(int, int);
+void draw_line(int, int, int, int);
 
 #ifdef __cplusplus
 }

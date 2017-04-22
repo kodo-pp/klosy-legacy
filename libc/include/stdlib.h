@@ -6,6 +6,7 @@
 #include <sys/cdefs.h>
 #include <string.h>		// string_t
 #include <stdbool.h>
+#include <stdint.h>
 
 #define max(x, y) (x)>(y)?(x):(y)
 #define min(x, y) (x)<(y)?(x):(y)

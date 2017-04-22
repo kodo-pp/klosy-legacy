@@ -34,6 +34,7 @@ $(ARCH_FREEOBJS) \
 stdio/printf.o \
 stdio/putchar.o \
 stdio/puts.o \
+stdio/stddraw.o \
 stdlib/abort.o \
 stdlib/panic.o \
 stdlib/itoa.o \
@@ -46,6 +47,8 @@ string/memcpy.o \
 string/memmove.o \
 string/memset.o \
 string/strlen.o \
+string/split.o \
+string/streq.o \
 ssp/ssp.o \
 keyboard/keyboard.o \
 time/time.o \
