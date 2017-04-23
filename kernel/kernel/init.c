@@ -168,6 +168,14 @@ void start_sh(void)
 				epanic();
 			}
 		}
+		else if (streq(spl[0], "kc"))
+		{
+			while (true)
+			{
+				int sc = getScanCode();
+				printf("%d: %d (%c)\n", sc, fromScanCode(sc), fromScanCode(sc));
+			}
+		}
 		else
 		{
 			if (!streq(spl[0], ""))

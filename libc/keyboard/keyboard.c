@@ -104,6 +104,8 @@ int fromScanCode(int scancode)
 		case 80: return 'v' | 0x0100; break;
 		case 77: return '>' | 0x0100; break;
 		case 1:  return 'e' | 0x0100; break;
+		case 42: return 'A' | 0x0200; break;
+		case 54: return 'B' | 0x0200; break;
 		
 		default: return scancode; break;
 	}
@@ -112,6 +114,8 @@ int fromScanCode(int scancode)
 
 int filter(int ch)
 {
+	if (ch == ('A' | 0x0200) || ch == ('B' | 0x0200))
+		return ch;
 	if (ch & 0xFF00)
 		return 0xFFFF;
 	return ch;
