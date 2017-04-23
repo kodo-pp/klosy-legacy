@@ -18,7 +18,7 @@ bool askpassword()
 	printf("Enter root password: ");
 	string_t pwd = allocate(256);
 	scan_strl(pwd);
-	bool succ = streq(pwd, "********"); // Ultra secure password
+	bool succ = streq(pwd, "*****"); // Ultra secure password
 	deallocate(pwd, 256);
 	return succ;
 }
@@ -46,7 +46,6 @@ void start_sh(void)
 	
 	bool isroot = false;
 	string_t user = "somebody";
-	
 	while (1)
 	{
 		printf("%o%s@klosy-klsh-1.4%o / %o%c ", cl(isroot ? red : lightGreen, black), isroot ? "root" : user, cl(lightBlue, black), cl(lightGrey, black), isroot ? '#' : '$');
@@ -179,7 +178,9 @@ void start_sh(void)
 		else
 		{
 			if (!streq(spl[0], ""))
+			{
 				printf("klsh: %s: unknown command\n", spl[0]);
+			}
 		}
 	}
 	

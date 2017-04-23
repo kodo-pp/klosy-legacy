@@ -5,9 +5,9 @@
 string_t *split(string_t s, int *ct)
 {
 	int i = 0;
-	int len = (int)strlen(s);
+	int len = (int)strlen(s);/*
 	if (len == 0)
-		return null;
+		return null;*/
 	string_t word;
 	string_t *sl = allocate(256);
 	if (!sl)

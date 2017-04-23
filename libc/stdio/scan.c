@@ -87,7 +87,6 @@ void scan_strl(string_t dest)
 		}
 		sh = false;
 	}
-	
 	// На всякий случай добавим нуль-терминатор (несмотря на то, что он был поставлен memset'ом)
 	temp[i] = '\0';
 	memmove(dest, temp, sizeof(temp));
