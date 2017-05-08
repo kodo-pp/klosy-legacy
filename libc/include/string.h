@@ -20,6 +20,7 @@ void* memset(void*, int, size_t);
 size_t strlen(const char*);
 bool streq(string_t, string_t);
 string_t *split(string_t, int *);
+string_t *csplit(string_t, int *, char ch);
 
 #ifdef __cplusplus
 }
