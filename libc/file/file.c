@@ -118,8 +118,6 @@ int fread(file f, size_t sz, void *_buf)
 
 int fwrite_8(file f, int8_t data)
 {
-//	printf("\nfw8 %d: ", (int)data);
-//	sleep(1000);
 	if (f == null)
 		return 0;
 	if (f->pos >= f->size)
@@ -138,18 +136,11 @@ int fwrite(file f, size_t sz, void *_buf)
 		return 0;
 	}
 	int8_t *buf = (int8_t *)_buf;
-//	printf("buf ready, ");
-//	sleep(1000);
 	for (size_t i = 0; i < sz; ++i)
 	{
-//		printf("fwr %d ", (int)buf[i]);
-//		sleep(1000);
 		if (!fwrite_8(f, buf[i]))
 			return 0;
-//		printf("ok, ");
-//		sleep(1000);
 	}
-//	printf("ok\n");
 	return 1;
 }
 
