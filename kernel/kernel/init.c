@@ -34,7 +34,7 @@ void startInit()
 void start_sh(void)
 {
 	list fl = get_fls();
-	printf("Klosy shell 1.1 beta (kernel 1.4)\n");
+	printf("Klosy shell 1.2 beta (kernel 1.4)\n");
 	
 	string_t s = allocate(256);
 	string_t *spl;
@@ -173,6 +173,15 @@ void start_sh(void)
 			{
 				int sc = getScanCode();
 				printf("%d: %d (%c)\n", sc, fromScanCode(sc), fromScanCode(sc));
+			}
+		}
+		else if (streq(spl[0], "ls"))
+		{
+			list tempfl = fl;
+			while (tempfl)
+			{
+				printf("%s\n", ((file)(tempfl->elem))->name);
+				tempfl = tempfl->next;
 			}
 		}
 		else

@@ -36,6 +36,9 @@ file make_file(string_t name)
 	if (f == null)
 		return null;
 	uint64_t h = hash(name);
+	string_t nameclone = allocate(strlen(name) + 1);
+	memcpy(nameclone, name, strlen(name) + 1);
+	f->name = nameclone;
 	f->name_hash = h;
 	f->size = DEFAULT_FILE_SIZE;
 	f->data = allocate(DEFAULT_FILE_SIZE);
@@ -77,6 +80,14 @@ int rename_file(file f, string_t new_name)
 		return 0;
 	int64_t nh = hash(new_name);
 	f->name_hash = nh;
+	
+	string_t old_name = f->name;
+	deallocate(old_name, strlen(old_name) + 1);
+	
+	string_t new_name_clone = allocate(strlen(new_name) + 1);
+	memcpy(new_name_clone, new_name, strlen(new_name) + 1);
+	f->name = new_name_clone;
+	
 	return 1; 
 }
 

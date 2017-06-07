@@ -7,6 +7,7 @@
 
 struct _file // Структура, отражающая файл
 {
+	string_t name;
 	uint64_t name_hash; // Хэш имени 
 	void *data; // Указатель на данные в файле
 	size_t size; // Размер файла
