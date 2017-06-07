@@ -31,7 +31,7 @@ void startInit()
 	start_sh();
 }
 
-void start_sh(void)
+void start_sh(void) // Ugly, I know
 {
 	list fl = get_fls();
 	printf("Klosy shell 1.2 beta (kernel 1.4)\n");
