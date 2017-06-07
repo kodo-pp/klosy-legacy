@@ -14,15 +14,29 @@ list get_fls()
 	return fls;
 }
 
+static int hex2dec(char hexch)
+{
+	if ('0' <= hexch && hexch <= '9')
+		return hexch - '0';
+	else if ('A' <= hexch && hexch <= 'F')
+		return hexch - 'A' + 10;
+	else if ('a' <= hexch && hexch <= 'f')
+		return hexch - 'a' + 10;
+	else
+		return -1;
+}
+
 static void f_add(string_t s)
 {
-	fwrite(curr_file, strlen(s), s);
-	string_t s1 = "\n";
-	fwrite(curr_file, 1, s1);
+	size_t flen = strlen(s) / 2;
+	for (size_t i = 0; i < flen; ++i)
+	{
+		char ch = (hex2dec(s[i*2]) << 4) | hex2dec(s[i*2+1]);
+		fwrite_8(curr_file, ch);
+	}
 }
 
 void init_ramfs()
 {
-
-fls = make_list(null);
+	fls = make_list(null);
 

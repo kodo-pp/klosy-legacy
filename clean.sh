@@ -6,9 +6,10 @@ for PROJECT in $PROJECTS; do
   (cd $PROJECT && $MAKE clean)
 done
 
-rm -rf sysroot
-rm -rf isodir
-rm -rf klosy.iso
+rm -rf sysroot || true
+rm -rf isodir || true
+rm -rf klosy.iso || true
+rm     etc/bin2hex || true
 
 touch 'kostyl~'
 rm -r `find . | egrep '\~$'`
