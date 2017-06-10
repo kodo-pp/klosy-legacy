@@ -1,6 +1,7 @@
 #!/bin/bash
 about_comment_text='// WARNING: THIS FILE IS MACHINE-GENERATED AND AUTO-REWRITED ON EACH BUILD.
 // DO NOT EDIT IT'
+mkdir etc/tmp || true
 echo 'Constructing initramfs...'
 echo "$about_comment_text" > etc/tmp/irfs.c
 cat etc/templates/irfs.c.begin >> etc/tmp/irfs.c
