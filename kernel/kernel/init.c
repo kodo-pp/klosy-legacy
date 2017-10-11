@@ -31,6 +31,33 @@ void startInit()
 	start_sh();
 }
 
+void cube3d()
+{
+	double ang = 0;
+	
+	while (true)
+	{
+		terminal_clear();
+		ang += 1;
+		draw_line(round(cos(ang) * 20 + 40), round(sin(ang) * 4 + 5), round(cos(ang+90) * 20 + 40), round(sin(ang+90) * 4 + 5));
+		draw_line(round(cos(ang+180) * 20 + 40), round(sin(ang+180) * 4 + 5), round(cos(ang+90) * 20 + 40), round(sin(ang+90) * 4 + 5));
+		draw_line(round(cos(ang+180) * 20 + 40), round(sin(ang+180) * 4 + 5), round(cos(ang-90) * 20 + 40), round(sin(ang-90) * 4 + 5));
+		draw_line(round(cos(ang) * 20 + 40), round(sin(ang) * 4 + 5), round(cos(ang-90) * 20 + 40), round(sin(ang-90) * 4 + 5));
+		
+		
+		draw_line(round(cos(ang) * 20 + 40), round(sin(ang) * 4 + 18), round(cos(ang+90) * 20 + 40), round(sin(ang+90) * 4 + 18));
+		draw_line(round(cos(ang+180) * 20 + 40), round(sin(ang+180) * 4 + 18), round(cos(ang+90) * 20 + 40), round(sin(ang+90) * 4 + 18));
+		draw_line(round(cos(ang+180) * 20 + 40), round(sin(ang+180) * 4 + 18), round(cos(ang-90) * 20 + 40), round(sin(ang-90) * 4 + 18));
+		draw_line(round(cos(ang) * 20 + 40), round(sin(ang) * 4 + 18), round(cos(ang-90) * 20 + 40), round(sin(ang-90) * 4 + 18));
+		
+		draw_line(round(cos(ang) * 20 + 40), round(sin(ang) * 4 + 5), round(cos(ang) * 20 + 40), round(sin(ang) * 4 + 18));
+		draw_line(round(cos(ang+90) * 20 + 40), round(sin(ang+90) * 4 + 5), round(cos(ang+90) * 20 + 40), round(sin(ang+90) * 4 + 18));
+		draw_line(round(cos(ang+180) * 20 + 40), round(sin(ang+180) * 4 + 5), round(cos(ang+180) * 20 + 40), round(sin(ang+180) * 4 + 18));
+		draw_line(round(cos(ang-90) * 20 + 40), round(sin(ang-90) * 4 + 5), round(cos(ang-90) * 20 + 40), round(sin(ang-90) * 4 + 18));
+		sleep(10);
+	}
+}
+
 void start_sh(void) // Ugly, I know
 {
 	list fl = get_fls();
@@ -175,10 +202,9 @@ void start_sh(void) // Ugly, I know
 				printf("%d: %d (%c)\n", sc, fromScanCode(sc), fromScanCode(sc));
 			}
 		}
-		else if (streq(spl[0], "uc"))
+		else if (streq(spl[0], "cube3d"))
 		{
-			update_cursor(24, 79);
-			sleep(10000);
+			cube3d();
 		}
 		else if (streq(spl[0], "ls"))
 		{
