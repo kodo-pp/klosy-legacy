@@ -3,7 +3,7 @@
 #include <../../kernel/arch/i386/vga.h>
 #include <kernel/tty.h>
 #include <stdmath.h>
-
+int 
 void draw_point(int x, int y)
 {
 	if (0 <= x && x < 80 && 0 <= y && y < 24)
