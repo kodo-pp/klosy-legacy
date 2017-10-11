@@ -17,7 +17,6 @@ int getchar(void);
 int getchar_nofilter(void);
 void scan_strl(string_t);
 int scan_intl(void);
-void set_draw_color(int);
 void draw_point(int, int);
 void draw_line(int, int, int, int);
 
