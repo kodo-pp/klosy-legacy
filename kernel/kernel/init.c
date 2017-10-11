@@ -175,6 +175,11 @@ void start_sh(void) // Ugly, I know
 				printf("%d: %d (%c)\n", sc, fromScanCode(sc), fromScanCode(sc));
 			}
 		}
+		else if (streq(spl[0], "uc"))
+		{
+			update_cursor(24, 79);
+			sleep(10000);
+		}
 		else if (streq(spl[0], "ls"))
 		{
 			list tempfl = fl;

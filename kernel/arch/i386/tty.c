@@ -100,13 +100,15 @@ void terminal_putchar(char c) {
 			--terminal_row;
 		}
 	}
-	update_cursor(terminal_row, terminal_column);
+	update_cursor(terminal_row >= VGA_HEIGHT-1 ? VGA_HEIGHT-2 : terminal_row, terminal_column >= VGA_WIDTH-1 ? VGA_WIDTH-2 : terminal_column);
 }
 
 void terminal_write(const char* data, size_t size) // calls terminal_putchar() for every character in the string
 {
 	for (size_t i = 0; i < size; i++)
 		terminal_putchar(data[i]);
+	terminal_putentryat(0, terminal_color, terminal_column, terminal_row);
+	update_cursor(terminal_row >= VGA_HEIGHT ? 24 : terminal_row, terminal_column >= VGA_WIDTH ? 79 : terminal_column);
 }
 
 void terminal_writestring(const char* data) // calls terminal_write() but determines the string length by itself
