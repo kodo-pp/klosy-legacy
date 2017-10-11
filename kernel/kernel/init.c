@@ -33,6 +33,7 @@ void startInit()
 
 void cube3d()
 {
+	set_draw_color(blue);
 	double ang = 0;
 	
 	while (true)

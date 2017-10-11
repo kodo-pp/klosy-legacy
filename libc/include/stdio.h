@@ -19,6 +19,7 @@ void scan_strl(string_t);
 int scan_intl(void);
 void draw_point(int, int);
 void draw_line(int, int, int, int);
+void set_draw_color(int);
 
 #ifdef __cplusplus
 }

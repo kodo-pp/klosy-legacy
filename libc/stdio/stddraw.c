@@ -4,12 +4,18 @@
 #include <kernel/tty.h>
 #include <stdmath.h>
 
+int draw_color;
+void set_draw_color(int cl)
+{
+	draw_color = cl;
+}
+
 void draw_point(int x, int y)
 {
 	if (0 <= x && x < 80 && 0 <= y && y < 24)
 	{
 		terminal_position(x, y);
-		printf("%o %o", cl(white, red), cl(lightGrey, black));
+		printf("%o %o", cl(draw_color, red), cl(lightGrey, black));
 	}
 }
 
