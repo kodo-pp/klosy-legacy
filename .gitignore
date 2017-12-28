@@ -1,0 +1,10 @@
+*.exe
+*.o
+*.iso
+*.d
+*.kernel
+*.dll
+*.so
+*.a
+!irfs.d/
+!.gitignore
